@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.home-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logo {
+    max-width: 50px; /* Adjust the size as needed */
+    height: auto;
+}
+
+.app-name {
+    font-size: 1.2em;
+    margin-left: 10px; /* Adjust spacing */
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-item {
+    margin-right: 10px; /* Adjust spacing between items */
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    margin-right: 5px; /* Adjust spacing between buttons */
+}
