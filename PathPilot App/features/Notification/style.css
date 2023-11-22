@@ -1,0 +1,24 @@
+/* Add your styles for the notification center and other elements here */
+
+.notification-center {
+    /* Style your notification center container */
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 0 0 0 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.notification {
+    /* Style individual notifications */
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

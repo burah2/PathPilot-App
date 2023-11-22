@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Assistant</title>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat"></div>
+        <button onclick="startVoiceRecognition()">Start Voice Recognition</button>
+        <button onclick="stopVoiceRecognition()">Stop Voice Recognition</button>
+    </div>
+
+    <script>
+        let recognition;
+
+        function startVoiceRecognition() {
+            recognition = new webkitSpeechRecognition();
+            recognition.onresult = function (event) {
+                const transcript = event.results[0][0].transcript;
+                addMessage('user', transcript);
+
+                // Send user message to the server
+                fetch('/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: transcript, sessionId: 'unique-session-id' }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    addMessage('bot', data.message);
+                });
+            };
+
+            recognition.start();
+        }
+
+        function stopVoiceRecognition() {
+            if (recognition) {
+                recognition.stop();
+            }
+        }
+
+        function addMessage(sender, text) {
+            const chatContainer = document.getElementById('chat');
+            const messageElement = document.createElement('div');
+            messageElement.classList.add(sender);
+            messageElement.textContent = text;
+            chatContainer.appendChild(messageElement);
+        }
+    </script>
+</body>
+</html>

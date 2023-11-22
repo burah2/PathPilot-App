@@ -1,3 +1,27 @@
+/* Common CSS styles go here */
+body {
+    font-family: 'Helvetica', sans-serif;
+    /* Add more common styles as needed */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Add more container styles as needed */
+}
+
+.navbar {
+    background-color: #333;
+    color: #fff;
+    /* Add more navbar styles as needed */
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    /* Add more logo styles as needed */
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -42,3 +66,12 @@ body {
 .button {
     margin-right: 5px; /* Adjust spacing between buttons */
 }
+
+
+/* Include other CSS files as needed */
+/* Include authentication feature CSS */
+@import url('features/authentication.css');
+/* Include Google Sign-In feature CSS */
+@import url('features/google-signin.css');
+/* Include dropdown menu feature CSS */
+@import url('features/dropdown-menu.css');

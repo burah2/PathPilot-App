@@ -1,0 +1,13 @@
+/* Authentication feature CSS styles go here */
+#signinButton,
+#signoutButton {
+    cursor: pointer;
+    /* Add styles specific to the authentication buttons */
+}
+
+#signinButton:hover,
+#signoutButton:hover {
+    background-color: #ddd; /* Change the background color on hover */
+    color: #333; /* Change the text color on hover */
+    /* Add other styles for the hover state as needed */
+}

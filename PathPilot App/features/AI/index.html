@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chatbot</title>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat"></div>
+        <input type="text" id="user-input" placeholder="Type your message">
+        <button onclick="sendUserMessage()">Send</button>
+    </div>
+
+    <script>
+        async function sendUserMessage() {
+            const userInput = document.getElementById('user-input').value;
+            addMessage('user', userInput);
+
+            // Send user message to the server
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: userInput, sessionId: 'unique-session-id' }),
+            });
+
+            const { message } = await response.json();
+            addMessage('bot', message);
+        }
+
+        function addMessage(sender, text) {
+            const chatContainer = document.getElementById('chat');
+            const messageElement = document.createElement('div');
+            messageElement.classList.add(sender);
+            messageElement.textContent = text;
+            chatContainer.appendChild(messageElement);
+
+            // Clear user input
+            document.getElementById('user-input').value = '';
+        }
+    </script>
+</body>
+</html>
